@@ -1,0 +1,54 @@
+{% extends 'usuariologs/base.html' %}
+
+{% block title %}Upload | {% endblock %}
+
+{% block content %}
+
+<div class="flex justify-center items-center mt-12">
+    <div class="bg-white shadow-md rounded p-8 w-full md:w-1/2 lg:w-1/1 mt-12">
+
+        <div class="text-center mb-8">
+            <h2 class="text-2xl font-semibold">Carregar Arquivo</h2>
+            <p class="text-gray-500 text-sm">Escolha um arquivo para enviar</p>
+        </div>
+
+        <div class="flex justify-center mb-8">
+            <label for="fileUpload"
+                class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded inline-flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 12a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    <path fill-rule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM1 10a9 9 0 1118 0 9 9 0 01-18 0z"
+                        clip-rule="evenodd" />
+                </svg>
+                Escolher Arquivo
+                <input type="file" id="fileUpload" class="hidden" multiple>
+            </label>
+        </div>
+
+        <div id="fileList"></div>
+
+        <div class="flex justify-center">
+            <button
+                class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                Cancelar
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById('fileUpload').addEventListener('change', function (event) {
+        const fileList = document.getElementById('fileList');
+        fileList.innerHTML = ''; 
+
+        const files = event.target.files;
+        for (let i = 0; i < files.length; i++) {
+            const file = files[i];
+            const listItem = document.createElement('div');
+            listItem.textContent = file.name;
+            fileList.appendChild(listItem);
+        }
+    });
+</script>
+{% endblock %}

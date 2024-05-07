@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/login.css">
+    <title>Login | Capital Finance</title>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container main">
+            <div class="row">
+
+                <div class="col-md-6 imagem"></div>
+
+                <form method="post" action="." class="col-md-6 login">
+                    <div class="input-box">
+
+                        <header>Login</header>
+
+                        {% csrf_token %}
+
+                        <div class="input-field">
+                            <input type="name" class="input" placeholder="Usuário" name="username">
+                        </div>
+
+
+                        <div class="input-field">
+                            <input type="password" class="input" placeholder="Senha" name="password">
+                        </div>
+
+                        <div class="input-field">
+                            <button class="submit">Acessar</button>
+                        </div>
+
+                        <div class="trocar-senha">
+                            <a href="#">Trocar/Esqueceu a senha?</a>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
